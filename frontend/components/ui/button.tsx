@@ -1,35 +1,43 @@
-import { Button as ButtonPrimitive } from "@base-ui/react/button";
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "cn";
+import { cn } from "@/lib/utils";
+import { Loader2 } from "lucide-react";
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "inline-flex items-center justify-center rounded-[8px] text-sm font-medium transition-all duration-200 select-none outline-none disabled:pointer-events-none disabled:opacity-50 active:scale-[0.99] focus-visible:ring-2 focus-visible:ring-[#315C45] focus-visible:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 cursor-pointer",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/80",
-        outline:
-          "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
+        // Primary Brand CTA: Solid #315C45 -> hover #234534
+        default:
+          "bg-[#315C45] text-white hover:bg-[#234534] shadow-sm hover:shadow",
+        // Secondary: Transparent, 1px border #D5D5D5, primary text, hover light bg
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
+          "bg-transparent text-[#111111] border border-[#D5D5D5] hover:bg-[#F7F7F5] hover:border-[#BBBBBB]",
+        // Outline: subtle neutral border
+        outline:
+          "border border-[#E5E5E5] bg-white text-[#111111] hover:bg-[#F7F7F5] hover:border-[#D5D5D5]",
+        // Ghost: for minimal nav links or icon triggers
         ghost:
-          "hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50",
-        destructive:
-          "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
-        link: "text-primary underline-offset-4 hover:underline",
+          "bg-transparent text-[#111111] hover:bg-[#F7F7F5] hover:text-[#315C45]",
+        // White/Inverted: for dark sections (hero/footer/banners)
+        inverted:
+          "bg-white text-[#111111] hover:bg-[#F7F7F5] shadow-sm font-medium",
+        // Subtle Brand Accent: light green background with dark green text
+        accent:
+          "bg-[#EAF1EC] text-[#234534] hover:bg-[#DCE7E0] border border-[#D6E3DA]",
+        // Link style
+        link: "text-[#315C45] underline-offset-4 hover:underline p-0 h-auto font-normal",
+        destructive: "bg-[#D32F2F] text-white hover:bg-[#B71C1C] shadow-sm",
       },
       size: {
-        default:
-          "h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
-        xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
-        sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
-        lg: "h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
-        icon: "size-8",
-        "icon-xs":
-          "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
-        "icon-sm":
-          "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
-        "icon-lg": "size-9",
+        // Design system standard: 44-48px height, 20-24px padding
+        default: "h-11 px-5 py-2.5 text-sm gap-2",
+        sm: "h-9 px-3.5 py-1.5 text-xs gap-1.5 rounded-[6px]",
+        lg: "h-12 px-6 py-3 text-base gap-2.5 rounded-[8px]",
+        icon: "size-10 p-0 rounded-[8px]",
+        "icon-sm": "size-8 p-0 rounded-[6px]",
       },
     },
     defaultVariants: {
@@ -39,19 +47,50 @@ const buttonVariants = cva(
   }
 );
 
-function Button({
-  className,
-  variant = "default",
-  size = "default",
-  ...props
-}: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
-  return (
-    <ButtonPrimitive
-      data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
-      {...props}
-    />
-  );
+export interface ButtonProps
+  extends
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+  isLoading?: boolean;
 }
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      className,
+      variant = "default",
+      size = "default",
+      asChild = false,
+      isLoading = false,
+      children,
+      disabled,
+      ...props
+    },
+    ref
+  ) => {
+    const Comp = asChild ? Slot : "button";
+
+    return (
+      <Comp
+        ref={ref}
+        data-slot="button"
+        className={cn(buttonVariants({ variant, size, className }))}
+        disabled={disabled || isLoading}
+        {...props}
+      >
+        {isLoading ? (
+          <>
+            <Loader2 className="mr-2 size-4 animate-spin" />
+            {children}
+          </>
+        ) : (
+          children
+        )}
+      </Comp>
+    );
+  }
+);
+Button.displayName = "Button";
 
 export { Button, buttonVariants };
