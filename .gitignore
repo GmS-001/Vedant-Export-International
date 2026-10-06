@@ -1,0 +1,133 @@
+# ==============================================================================
+# Git Ignore Configuration for Vedant Exports International
+# ==============================================================================
+
+# --- Environment & Secret Files ---
+# Strictly keep secrets and local credentials out of source control
+.env
+.env*.local
+.env.development
+.env.test
+.env.production
+*.env
+# Ensure example templates remain tracked
+!.env.example
+!backend/.env.example
+!frontend/.env.example
+
+# --- Python & Virtual Environments ---
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# C extensions
+*.c
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+!frontend/lib/
+*.egg
+MANIFEST
+
+# Unit test / coverage / lint caches
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.mypy_cache/
+.ruff_cache/
+
+# --- Node.js & Frontend (Next.js / TypeScript) ---
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Next.js build output & cache
+.next/
+frontend/.next/
+out/
+frontend/out/
+.turbo/
+*.tsbuildinfo
+
+# Vercel deployment artifacts
+.vercel
+
+# --- Database & Local Storage ---
+*.sqlite
+*.sqlite3
+*.db
+uploads/
+media/
+storage/
+
+# --- Logs & Runtime Files ---
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# --- OS Artifacts ---
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptseed
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+
+# Linux
+*~
+
+# --- IDEs & Code Editors ---
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# --- Scratch & Temporary Files ---
+scratch/
+tmp/
+temp/

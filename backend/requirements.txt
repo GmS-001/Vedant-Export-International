@@ -1,0 +1,32 @@
+# ==============================================================================
+# Vedant Exports International - Backend Python Requirements
+# Defined according to docs/03-system-design.md & docs/05-backend-architecture.md
+# ==============================================================================
+
+# --- Core Web Framework & ASGI Server ---
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+
+# --- Data Validation & Settings Management ---
+pydantic>=2.10.0
+pydantic-settings>=2.6.0
+email-validator>=2.2.0
+
+# --- Database ORM & Migrations ---
+sqlalchemy>=2.0.36
+alembic>=1.14.0
+psycopg[binary]>=3.2.0
+psycopg2-binary>=2.9.10
+
+# --- External Communication & Services (Email / WhatsApp / HTTP Client) ---
+resend>=2.5.0
+twilio>=9.4.0
+httpx>=0.28.0
+
+# --- Security, Rate Limiting & Environment Utilities ---
+python-dotenv>=1.0.1
+slowapi>=0.1.9
+
+# --- Testing & Quality Assurance ---
+pytest>=8.3.0
+pytest-asyncio>=0.24.0
