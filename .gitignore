@@ -95,6 +95,15 @@ uploads/
 media/
 storage/
 
+# --- Photos & Media Assets ---
+frontend/public/team/
+public/team/
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.avif
+
 # --- Logs & Runtime Files ---
 *.log
 *.pid

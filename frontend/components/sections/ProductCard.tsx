@@ -72,11 +72,17 @@ export function ProductCard({
           {specs.length > 0 && (
             <div className="my-3 flex flex-col gap-1.5 border-y border-[#F0F0F0] py-3 text-xs">
               {specs.slice(0, 3).map((spec, idx) => (
-                <div key={idx} className="flex items-center justify-between">
-                  <span className="font-normal text-[#888888]">
+                <div
+                  key={idx}
+                  className="flex items-center justify-between gap-3 min-w-0"
+                >
+                  <span className="shrink-0 font-normal text-[#888888]">
                     {spec.label}
                   </span>
-                  <span className="font-medium text-[#111111]">
+                  <span
+                    className="min-w-0 truncate text-right font-medium text-[#111111]"
+                    title={spec.value}
+                  >
                     {spec.value}
                   </span>
                 </div>

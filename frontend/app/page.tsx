@@ -9,6 +9,7 @@ import { SectionHeader } from "@/components/typography/SectionHeader";
 import { TrustBanner } from "@/components/sections/TrustBanner";
 import { ProductCard } from "@/components/sections/ProductCard";
 import { FeatureCard } from "@/components/sections/FeatureCard";
+import { LeadershipSection } from "@/components/sections/LeadershipSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -207,6 +208,9 @@ export default function Home() {
             </div>
           </Container>
         </Section>
+
+        {/* --- Leadership & Key People Section --- */}
+        <LeadershipSection />
 
         {/* --- Reusable Conversion CTA Section --- */}
         <CTASection />

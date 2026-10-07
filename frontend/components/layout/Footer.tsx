@@ -165,26 +165,62 @@ export function Footer() {
             <ul className="flex flex-col gap-3 text-sm text-[#A0A0A0]">
               <li className="flex items-start gap-2.5">
                 <MapPin className="mt-0.5 size-4 shrink-0 text-[#8CD0A4]" />
-                <span className="leading-snug">
-                  Cold Storage Facility, Agra, Uttar Pradesh, India
-                </span>
+                <a
+                  href="https://www.google.com/maps/place/Pushpanjali+Seasons/@27.2395469,78.0017425,223m/data=!3m1!1e3!4m6!3m5!1s0x39747960bc2d5ced:0x4cb06bfe78af1b8a!8m2!3d27.2392233!4d78.0020607!16s%2Fg%2F11qmqxjb20!5m1!1e2?entry=ttu&g_ep=EgoyMDI2MTAwNC4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="leading-snug transition-colors hover:text-white hover:underline"
+                  title="Open Export Office in Google Maps"
+                >
+                  Export Office, Agra, Uttar Pradesh, India - 282005
+                </a>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <MapPin className="mt-0.5 size-4 shrink-0 text-[#8CD0A4]" />
+                <a
+                  href="https://www.google.com/maps/place/Shri+Balvir+Singh+Cold+storage+and+Ice+factory/@27.1150435,77.8886177,7255m/data=!3m1!1e3!4m10!1m2!2m1!1sbalveer+sing+ice+and+cold+storage+agra!3m6!1s0x39738b0010beb83f:0xf1ef79308b182007!8m2!3d27.115042!4d77.9168516!15sCiZiYWx2ZWVyIHNpbmcgaWNlIGFuZCBjb2xkIHN0b3JhZ2UgYWdyYZIBCXdhcmVob3VzZeABAA!16s%2Fg%2F11nvymkd2d!5m1!1e2?entry=ttu&g_ep=EgoyMDI2MTAwNC4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="leading-snug transition-colors hover:text-white hover:underline"
+                  title="Open Cold Storage Facility in Google Maps"
+                >
+                  Balveer Singh Ice and Cold Storage Pvt. Ltd., Malpura, Agra, Uttar Pradesh, India
+                </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="size-4 shrink-0 text-[#8CD0A4]" />
                 <a
-                  href="mailto:inquiries@vedantexports.com"
+                  href="mailto:vedantexportd4@gmail.com"
                   className="truncate transition-colors hover:text-white"
                 >
-                  inquiries@vedantexports.com
+                  vedantexportd4@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="size-4 shrink-0 text-[#8CD0A4]" />
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+919412167091"
                   className="transition-colors hover:text-white"
                 >
-                  +91 (Contact Desk)
+                  +91 9412167091
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Phone className="size-4 shrink-0 text-[#8CD0A4]" />
+                <a
+                  href="tel:+916396635684"
+                  className="transition-colors hover:text-white"
+                >
+                  +91 6396635684
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Phone className="size-4 shrink-0 text-[#8CD0A4]" />
+                <a
+                  href="tel:+917456882038"
+                  className="transition-colors hover:text-white"
+                >
+                  +91 7456 882 038
                 </a>
               </li>
               <li>
